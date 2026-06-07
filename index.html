@@ -3,181 +3,201 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday!</title>
+<title>Happy Birthday 💖</title>
 
 <style>
-body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    background:linear-gradient(135deg,#ffb6c1,#ffd700);
-    overflow:hidden;
-    text-align:center;
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffd1dc, #ffe4ec);
+    overflow-x: hidden;
 }
 
-.screen{
-    position:absolute;
-    width:100%;
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
+/* Floating hearts background */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    color: rgba(255, 105, 180, 0.6);
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
 }
 
-button{
-    padding:12px 24px;
-    border:none;
-    border-radius:30px;
-    background:#ff4081;
-    color:white;
-    font-size:18px;
-    cursor:pointer;
+@keyframes floatUp {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-110vh);}
 }
 
-.hidden{
-    display:none;
+/* Screens */
+.screen {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
 }
 
-#typewriter{
-    font-size:28px;
-    color:white;
-    width:80%;
-    min-height:100px;
+.hidden { display: none; }
+
+/* Buttons */
+button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-.cake{
-    margin-top:20px;
-    position:relative;
+/* Typewriter */
+#typewriter {
+    font-size: 22px;
+    color: #b30059;
+    margin-top: 20px;
+    width: 80%;
+    min-height: 80px;
 }
 
-.candle{
-    width:10px;
-    height:50px;
-    background:white;
-    display:inline-block;
-    margin:5px;
-    position:relative;
+/* Cake */
+.cake {
+    font-size: 80px;
+    margin-top: 20px;
+    animation: bounce 2s infinite;
 }
 
-.flame{
-    width:12px;
-    height:18px;
-    background:orange;
-    border-radius:50%;
-    position:absolute;
-    top:-18px;
-    left:-1px;
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
 
-.final-message{
-    color:white;
-    font-size:24px;
-    padding:20px;
+/* Photo slideshow */
+.slideshow {
+    width: 250px;
+    height: 250px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.slideshow img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fade 9s infinite;
+}
+
+@keyframes fade {
+    0% {opacity: 1;}
+    33% {opacity: 0;}
+    66% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+/* Final message */
+.final {
+    font-size: 20px;
+    color: #a1004f;
+    padding: 20px;
 }
 </style>
 </head>
 
 <body>
 
+<!-- Floating hearts -->
+<script>
+for(let i=0;i<20;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="💖";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(heart);
+}
+</script>
+
+<!-- OPENING SCREEN -->
 <div id="welcome" class="screen">
-    <h1>🎁 A Special Surprise For You 🎁</h1>
+    <h1>🎁 A Special Surprise For You 💖</h1>
     <button onclick="start()">Open Your Gift</button>
 </div>
 
+<!-- MAIN SCREEN -->
 <div id="main" class="screen hidden">
 
-    <h1>🎉 Happy Birthday! 🎉</h1>
+    <h1>🎉 Happy Birthday 🎉</h1>
 
     <div id="typewriter"></div>
 
-    <div class="cake">
-        🎂
-        <br>
-        <div class="candle" onclick="blow(this)">
-            <div class="flame"></div>
-        </div>
+    <div class="cake">🎂</div>
 
-        <div class="candle" onclick="blow(this)">
-            <div class="flame"></div>
-        </div>
-
-        <div class="candle" onclick="blow(this)">
-            <div class="flame"></div>
-        </div>
+    <!-- PHOTO SLIDESHOW -->
+    <div class="slideshow">
+        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
     </div>
 
-    <br>
-    <button onclick="showFinal()">Blow All Candles</button>
+    <button onclick="showFinal()">Reveal Surprise 💌</button>
 
+    <audio id="music" loop>
+        <source src="birthday-song.mp3" type="audio/mpeg">
+    </audio>
 </div>
 
+<!-- FINAL SCREEN -->
 <div id="final" class="screen hidden">
-    <div class="final-message">
-        Dearest Zaakia Sultan Butt, ❤️<br><br>
+    <div class="final">
+         Dear Zaakia Sultan Butt💖<br><br>
 
         To the most beautiful soul I call my "achii dost"! May all the happiness of this world find you even in the darkest of storms, and Allah's mercy be with you whatever situation you may be in!
+
 تمہارا نصیب اتنا پیارا ہو کہ آسمان رشک کرے، اور وہ تمام دعائیں قبول ہوں جن کے بارے میں تمہارے علاوہ کوئی نہیں جانتا۔ جتنا خلوص تمہارے دل میں ہے، تمہیں اس کا بہترین اجر ملے، اور تم اپنے وجود کے ہر ذرّے پر ہمیشہ فخر محسوس کرو۔
 
 دونوں جہانوں کی کامیابیاں، خوشیاں اور سکون تمہیں عطا ہوں، اور تمہاری یادداشت کے 
  کسی کونے میں ہمیشہ میرا نام بھی قائم رہے۔
 آمین
 
-!تمہاری دوستی، خلوص، اور مجھے سمجھنے اور کبھی نہ چھوڑ کر جانے کے لیے بہت شکریہ!
+!تمہاری دوستی، خلوص، اور مجھے سمجھنے اور کبھی نہ چھوڑ کر جانے کے لیے بہت شکریہ
 
-        🎂✨ Happy Birthday Once Again! ✨🎂
+You know what I love about you the most? Your originality! Fake nahi ho tum, hnn bewafaa, mannerless, aur 2 no. zaroor ho aur woh toh hamesha rho gi..
+And I actually love that :).. Hnn bss thorii zyadaa bewafaiii qaabil-e-bardasht nahi hoti, uss k liye tm bhaar mn hi achii ho!
+Hr maheenay baad badal jaati ho, but ek cheez jisska mujhe yaqeen hai k nahi badlay gi, woh hai hmari dostiii!! 
+And yes I love you for that! And I feel blessed to have a friend like you :)!! Khushhh rho hameshaaa, aabaad rho!!
 
-        <br><br>
-        With Love,<br>
-        [Laraib Shahid]
+        Happy Birthday once again 🎂🎉
     </div>
 </div>
-
-<audio id="music" loop>
-<source src="YOUR-MUSIC-LINK.mp3" type="audio/mpeg">
-</audio>
 
 <script>
 
 function start(){
-    document.getElementById('welcome').classList.add('hidden');
-    document.getElementById('main').classList.remove('hidden');
+    document.getElementById("welcome").classList.add("hidden");
+    document.getElementById("main").classList.remove("hidden");
 
     typeWriter();
 
-    document.getElementById('music').play().catch(()=>{});
+    const music=document.getElementById("music");
+    music.play().catch(()=>{});
 }
 
-let text =
-"You know what I love about you the most? Your originality! Fake nahi ho tum, hnn bewafaa, mannerless, aur 2 no. zaroor ho aur woh toh hamesha rho gi.. And I actually love that :).. Hnn bss thorii zyadaa bewafaiii qaabil-e-bardasht nahi hoti, uss k liye tm bhaar mn hi achii ho! Hr maheenay baad badal jaati ho, but ek cheez jisska mujhe yaqeen hai k nahi badlay gi, woh hai hmari dostiii!! and yes I love you for that! Khushhh rho hameshaaa, aabaad rho!! .";
-
+let text="Today is all about YOU 💖 A day filled with love, happiness, and beautiful memories waiting for you ✨";
 let i=0;
 
 function typeWriter(){
     if(i<text.length){
-        document.getElementById('typewriter').innerHTML += text.charAt(i);
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
         i++;
         setTimeout(typeWriter,50);
     }
 }
 
-function blow(candle){
-    let flame=candle.querySelector('.flame');
-    if(flame){
-        flame.remove();
-    }
-}
-
 function showFinal(){
-
-    let flames=document.querySelectorAll('.flame');
-
-    if(flames.length>0){
-        alert("Blow out all candles first! 🎂");
-        return;
-    }
-
-    document.getElementById('main').classList.add('hidden');
-    document.getElementById('final').classList.remove('hidden');
+    document.getElementById("main").classList.add("hidden");
+    document.getElementById("final").classList.remove("hidden");
 }
 
 </script>
