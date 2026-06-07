@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday 💖</title>
 
-<!-- Poppins Font -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
@@ -21,7 +20,7 @@ body {
 .heart {
     position: fixed;
     bottom: -20px;
-    color: rgba(255, 105, 180, 0.6);
+    color: rgba(255,105,180,0.6);
     font-size: 20px;
     animation: floatUp 6s linear infinite;
 }
@@ -94,13 +93,7 @@ h1 {
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
-.slideshow img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* FINAL LETTER (AESTHETIC UPGRADE) */
+/* FINAL LETTER */
 .final {
     font-family: "Times New Roman", Times, serif;
     font-size: 20px;
@@ -113,20 +106,36 @@ h1 {
     line-height: 1.8;
     backdrop-filter: blur(5px);
     animation: fadeIn 2s ease-in-out;
-    text-align: center;
 }
 
-/* Fade in animation */
+/* Fade */
 @keyframes fadeIn {
     from {opacity: 0; transform: translateY(20px);}
     to {opacity: 1; transform: translateY(0);}
 }
 
-/* Signature effect */
+/* Bouquet animation */
+.bouquet {
+    font-size: 70px;
+    animation: pop 1s ease-in-out infinite alternate;
+}
+
+@keyframes pop {
+    from {transform: scale(1);}
+    to {transform: scale(1.1) rotate(-3deg);}
+}
+
+/* Countdown */
+#countdown {
+    font-size: 60px;
+    color: #b30059;
+    font-weight: bold;
+}
+
+/* Signature */
 .signature {
     margin-top: 20px;
     font-style: italic;
-    font-size: 18px;
     opacity: 0;
     animation: sig 3s forwards;
     animation-delay: 3s;
@@ -141,22 +150,28 @@ h1 {
 
 <body>
 
-<!-- Floating hearts -->
+<!-- hearts -->
 <script>
 for(let i=0;i<25;i++){
-    let heart=document.createElement("div");
-    heart.className="heart";
-    heart.innerHTML="💖";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(3+Math.random()*5)+"s";
-    document.body.appendChild(heart);
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="💖";
+    h.style.left=Math.random()*100+"vw";
+    h.style.animationDuration=(3+Math.random()*5)+"s";
+    document.body.appendChild(h);
 }
 </script>
 
+<!-- COUNTDOWN SCREEN -->
+<div id="countScreen" class="screen">
+    <h1>🎀 Your Surprise Unlocks In...</h1>
+    <div id="countdown">5</div>
+</div>
+
 <!-- OPENING -->
-<div id="welcome" class="screen">
-    <h1>🎁Your wish is here! 💖</h1>
-    <button onclick="start()">Open Your Gift</button>
+<div id="welcome" class="screen hidden">
+    <h1>🎁 Your Wish is Ready 💖</h1>
+    <div class="bouquet">💐</div>
 </div>
 
 <!-- MAIN -->
@@ -169,7 +184,7 @@ for(let i=0;i<25;i++){
     <div class="cake">🎂</div>
 
     <div class="slideshow">
-        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce">
+        <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce" width="100%" height="100%">
     </div>
 
     <button onclick="showFinal()">Reveal Surprise 💌</button>
@@ -177,26 +192,26 @@ for(let i=0;i<25;i++){
     <audio id="music" loop>
         <source src="birthday-song.mp3" type="audio/mpeg">
     </audio>
-
 </div>
 
-<!-- FINAL LETTER -->
+<!-- FINAL -->
 <div id="final" class="screen hidden">
 
     <div class="final">
 
-         Dear Ms Zaakia Sultan Butt ❤️<br><br>
+         Dear Ms Zaakia Sultan Butt 💖<br><br>
 
-        To the most beautiful soul I call my "achii dost"! May all the happiness of this world find you even in the darkest of storms, and Allah's mercy be with you whatever situation you may be in!<br><br>
+        To the most beautiful soul I call my "achii dost"! May all the happiness of this world find you even in the darkest of storms, and Allah's mercy be with you whatever situation you may be in!
         
+تمہارا نصیب اتنا پیارا ہو کہ آسمان رشک کرے، اور وہ تمام دعائیں قبول ہوں جن کے بارے میں تمہارے علاوہ کوئی نہیں جانتا۔ جتنا خلوص تمہارے دل میں ہے، تمہیں اس کا بہترین اجر ملے، اور تم اپنے وجود کے ہر ذرّے پر ہمیشہ فخر محسوس کرو۔
 
-        تمہارا نصیب اتنا پیارا ہو کہ آسمان رشک کرے، اور وہ تمام دعائیں قبول ہوں جن کے بارے میں تمہارے علاوہ کوئی نہیں جانتا۔ جتنا خلوص تمہارے دل میں ہے، تمہیں اس کا بہترین اجر ملے، اور تم اپنے وجود کے ہر ذرّے پر ہمیشہ فخر محسوس کرو۔<br><br>
+دونوں جہانوں کی کامیابیاں، خوشیاں اور سکون تمہیں عطا ہوں، اور تمہاری یادداشت کے 
+ کسی کونے میں ہمیشہ میرا نام بھی قائم رہے۔
+آمین
 
-       دونوں جہانوں کی کامیابیاں، خوشیاں اور سکون تمہیں عطا ہوں ❤️<br><br>
+!تمہاری دوستی، خلوص، اور مجھے سمجھنے اور کبھی نہ چھوڑ کر جانے کے لیے بہت شکریہ! ✨<br><br>
 
-        تمہاری دوستی، خلوص، اور مجھے سمجھنے اور کبھی نہ چھوڑ کر جانے کے لیے بہت شکریہ!
-
-        Remember, I once wwrote this for you: 
+        Remember, I once wrote for you:
         دلِ بے رحم کو شکایتیں ہیں آج بھی تم سے
 مرہم مگر کچھ زخم پر رکھا بھی گیا ہے
 
@@ -213,22 +228,19 @@ for(let i=0;i<25;i++){
 لفظ "دوستی" میں سبھی کچھ سما تو گیا ہے!
 
 میں کون ہوں اور کیا ہو تم، اب چھوڑ دو یہ سب
-دل کو ہمارے پیار سے رکھا تو گیا ہے!
+دل کو ہمارے پیار سے رکھا تو گیا ہے!<br><br>
 
-        
-        You know what I love about you the most? Your originality! Fake nahi ho tum<br>
+      You know what I love about you the most? Your originality! Fake nahi ho tum, hnn bewafaa, mannerless, aur 2 no. zaroor ho aur woh toh hamesha rho gi..
+        And I actually love that :).. Hnn bss thorii zyadaa bewafaiii qaabil-e-bardasht nahi hoti, uss k liye tm bhaar mn hi achii ho!
+        Hr maheenay baad badal jaati ho, but ek cheez jisska mujhe yaqeen hai k nahi badlay gi, woh hai hmari dostiii!! and yes I love you for that!
+        And I feel blessed to have a friend like you :)!! Khushhh rho hameshaaa, aabaad rho!!<br><br>
 
-        hnn bewafaa, mannerless, aur 2 no. zaroor ho aur woh toh hamesha rho gi.. And I actually love that :)..
-        Hnn bss thorii zyadaa bewafaiii qaabil-e-bardasht nahi hoti, uss k liye tm bhaar mn hi achii ho!
-        Hr maheenay baad badal jaati ho, but ek cheez jisska mujhe yaqeen hai k nahi badlay gi, woh hai hmari dostiii!!
-        and yes I love you for that! And I feel blessed to have a friend like you :)!! Tum tum hi ho, and be proud of it alwaysss!!! Khushhh rho hameshaaa, aabaad rho!!<br><br>
 
-        Happy Birthday once again 🎂🎉
+        Happy Birthday once again 🎂🎉<br><br>
 
         <div class="signature">
-            — With love, always 💕
+            — With love, always 💕<br>
             Laraib Shahid
-            
         </div>
 
     </div>
@@ -237,24 +249,45 @@ for(let i=0;i<25;i++){
 
 <script>
 
+let c = 5;
+
+function startCountdown(){
+    let counter = document.getElementById("countdown");
+
+    let interval = setInterval(() => {
+        c--;
+        counter.innerText = c;
+
+        if(c === 0){
+            clearInterval(interval);
+
+            document.getElementById("countScreen").classList.add("hidden");
+            document.getElementById("welcome").classList.remove("hidden");
+
+            setTimeout(start, 1000);
+        }
+    }, 1000);
+}
+
+startCountdown();
+
 function start(){
     document.getElementById("welcome").classList.add("hidden");
     document.getElementById("main").classList.remove("hidden");
 
     typeWriter();
 
-    const music=document.getElementById("music");
-    music.play().catch(()=>{});
+    document.getElementById("music").play().catch(()=>{});
 }
 
-let text="Happy 22 years of existence, Ms Zaakiaaaa ✨";
+let text="Happy 22 years of existence, Ms Zaakiaaaaaa✨ A day made just for YOUUU ❤️";
 let i=0;
 
 function typeWriter(){
-    if(i<text.length){
+    if(i < text.length){
         document.getElementById("typewriter").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeWriter,50);
+        setTimeout(typeWriter, 50);
     }
 }
 
