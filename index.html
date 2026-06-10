@@ -3,146 +3,160 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Happy Birthday 💖</title>
+<title>For Zaakia 💖</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ffd1dc, #ffe4ec);
-    overflow: hidden;
+body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background: linear-gradient(135deg,#fff8f5,#ffeef2,#fdf2f8);
+    overflow:hidden;
 }
 
 /* Screens */
-.screen {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+.screen{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
 }
 
-.hidden { display: none; }
+.hidden{display:none}
 
-/* Buttons */
-button {
-    background: #ff69b4;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 30px;
-    font-size: 18px;
-    cursor: pointer;
+/* Elegant text */
+h1{
+    color:#b30059;
+    font-weight:600;
 }
 
 /* Countdown */
-#countdown {
-    font-size: 60px;
-    color: #b30059;
+#countdown{
+    font-size:60px;
+    color:#b30059;
+}
+
+/* Button */
+button{
+    background:#ff69b4;
+    border:none;
+    padding:12px 25px;
+    border-radius:30px;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+/* Floating aesthetic flowers */
+.float-item{
+    position:fixed;
+    font-size:20px;
+    animation: floatUp linear forwards;
+    opacity:0.7;
+}
+
+@keyframes floatUp{
+    from{transform:translateY(100vh);}
+    to{transform:translateY(-10vh); opacity:0;}
 }
 
 /* Bouquet */
-.bouquet {
-    font-size: 70px;
-    animation: pop 1s infinite alternate;
+.bouquet{
+    font-size:70px;
+    animation:pop 1.2s infinite alternate;
 }
-@keyframes pop {
-    from {transform: scale(1);}
-    to {transform: scale(1.1);}
-}
-
-/* Typewriter */
-#typewriter {
-    font-size: 22px;
-    color: #b30059;
-    margin: 20px;
+@keyframes pop{
+    from{transform:scale(1);}
+    to{transform:scale(1.1);}
 }
 
-/* ENVELOPE 3D */
-.envelope-container {
-    perspective: 1000px;
+/* IMAGE FRAME */
+.photo-frame{
+    width:280px;
+    height:280px;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+    margin-top:20px;
 }
 
-.envelope {
-    width: 220px;
-    height: 140px;
-    position: relative;
-    transform-style: preserve-3d;
-    cursor: pointer;
-    transition: transform 1s;
+.photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
-.envelope.flipped {
-    transform: rotateX(180deg);
+/* ENVELOPE */
+.envelope{
+    width:220px;
+    height:140px;
+    background:#ff69b4;
+    position:relative;
+    border-radius:10px;
+    cursor:pointer;
+    transform-style:preserve-3d;
+    transition:1s;
 }
 
-/* Front */
-.front, .back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    backface-visibility: hidden;
+.envelope::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    border-left:110px solid transparent;
+    border-right:110px solid transparent;
+    border-bottom:80px solid #ff8fb8;
 }
 
-.front {
-    background: #ff69b4;
-}
-
-.back {
-    background: #fff;
-    transform: rotateX(180deg);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* CONFETTI */
-.confetti {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: #ff69b4;
-    top: 0;
-    animation: fall 2s linear forwards;
-}
-
-@keyframes fall {
-    to {transform: translateY(100vh) rotate(360deg);}
+.envelope.open{
+    transform:rotateX(180deg);
 }
 
 /* FINAL LETTER */
-.final {
-    font-family: "Times New Roman", Times, serif;
-    font-size: 20px;
-    color: #7a003c;
-    padding: 30px;
-    max-width: 800px;
-    background: rgba(255,255,255,0.6);
-    border-radius: 20px;
-    box-shadow: 0 0 25px rgba(255,105,180,0.3);
-    line-height: 1.8;
-    max-height: 80vh;
-    overflow-y: auto;
+.final{
+    font-family:"Times New Roman",serif;
+    background:rgba(255,255,255,0.7);
+    padding:25px;
+    max-width:800px;
+    border-radius:20px;
+    box-shadow:0 0 25px rgba(255,105,180,0.2);
+    line-height:1.8;
+    max-height:80vh;
+    overflow-y:auto;
+    color:#7a003c;
 }
 
-/* Floating hearts cursor */
-.heart {
-    position: fixed;
-    font-size: 18px;
-    pointer-events: none;
-    animation: floatUp 2s linear forwards;
+/* Confetti */
+.confetti{
+    position:fixed;
+    width:8px;
+    height:8px;
+    top:0;
+    animation: fall 2s linear forwards;
 }
 
-@keyframes floatUp {
-    to {
-        transform: translateY(-100px);
-        opacity: 0;
-    }
+@keyframes fall{
+    to{transform:translateY(100vh) rotate(360deg);}
+}
+
+/* Cinematic overlay */
+#cinema{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    font-size:28px;
+    color:#b30059;
+    z-index:10;
 }
 
 </style>
@@ -150,55 +164,42 @@ button {
 
 <body>
 
-<!-- HEART CURSOR EFFECT -->
-<script>
-document.addEventListener("mousemove", function(e){
-    let heart = document.createElement("div");
-    heart.className = "heart";
-    heart.innerHTML = "💖";
-    heart.style.left = e.clientX + "px";
-    heart.style.top = e.clientY + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 1000);
-});
-</script>
+<!-- CINEMATIC INTRO -->
+<div id="cinema">
+    <div id="cinemaText">It's your day, Zaakia 💖</div>
+</div>
 
 <!-- COUNTDOWN -->
 <div id="countScreen" class="screen">
-    <h1>🎀 Unlocking Surprise...</h1>
-    <div id="countdown">5</div>
+    <h1>Countdown to 16 June 🎀</h1>
+    <div id="countdown"></div>
 </div>
 
 <!-- BOUQUET -->
 <div id="welcome" class="screen hidden">
-    <h1>💐 A Gift For You 💐</h1>
     <div class="bouquet">💐</div>
+    <h1>A little gift for you</h1>
 </div>
 
 <!-- MAIN -->
 <div id="main" class="screen hidden">
-    <h1>🎉 Happy Birthday 🎉</h1>
-    <div id="typewriter"></div>
 
-    <button onclick="openEnvelope()">Open Final Letter 💌</button>
+    <h1>Happy Birthday Zaakia 💖</h1>
 
-    <audio id="music" loop>
-        <source src="birthday-song.mp3">
-    </audio>
+    <div class="photo-frame">
+        <img src="https://drive.google.com/thumbnail?id=1P2xT90j9eTjT7Cc0OmwGJNorYHNXim4H&sz=w1000">
+    </div>
+
+    <button onclick="openLetter()">Open Your Letter 💌</button>
+
 </div>
 
 <!-- ENVELOPE -->
 <div id="envelopeScreen" class="screen hidden">
 
-    <h1>💌 Click the Envelope</h1>
+    <div class="envelope" id="envelope" onclick="reveal()"></div>
 
-    <div class="envelope-container">
-        <div class="envelope" id="envelope" onclick="openLetter()">
-            <div class="front"></div>
-            <div class="back">💌 Your Letter</div>
-        </div>
-    </div>
+    <h3>Tap the envelope 💌</h3>
 
 </div>
 
@@ -207,9 +208,10 @@ document.addEventListener("mousemove", function(e){
 
 <div class="final">
 
-Dear Ms Zaakia Sultan Butt 💖<br><br>
+💖 Dear Zaakia Sultan Butt 💖<br><br>
 
 To the most beautiful soul I call my "achii dost"! May all the happiness of this world find you even in the darkest of storms, and Allah's mercy be with you whatever situation you may be in!
+
     
 تمہارا نصیب اتنا پیارا ہو کہ آسمان رشک کرے، اور وہ تمام دعائیں قبول ہوں جن کے بارے میں تمہارے علاوہ کوئی نہیں جانتا۔ جتنا خلوص تمہارے دل میں ہے، تمہیں اس کا بہترین اجر ملے، اور تم اپنے وجود کے ہر ذرّے پر ہمیشہ فخر محسوس کرو۔
 
@@ -219,95 +221,90 @@ To the most beautiful soul I call my "achii dost"! May all the happiness of this
 
 !تمہاری دوستی، خلوص، اور مجھے سمجھنے اور کبھی نہ چھوڑ کر جانے کے لیے بہت شکریہ!<br><br>
 
-You know what I love about you the most? Your originality! Fake nahi ho tum, hnn bewafaa, mannerless, aur 2 no. zaroor ho aur woh toh hamesha rho gi..
-    And I actually love that :).. Hnn bss thorii zyadaa bewafaiii qaabil-e-bardasht nahi hoti, uss k liye tm bhaar mn hi achii ho!
-    Hr maheenay baad badal jaati ho, but ek cheez jisska mujhe yaqeen hai k nahi badlay gi, woh hai hmari dostiii!! and yes I love you for that!
-    And I feel blessed to have a friend like you :)!! Khushhh rho hameshaaa, aabaad rho!!✨<br><br>
+You know what I love about you the most? Your originality!
+    Fake nahi ho tum, hnn bewafaa, mannerless, aur 2 no. zaroor ho aur woh toh hamesha rho gi.. And I actually love that :)..
+    Hnn bss thorii zyadaa bewafaiii qaabil-e-bardasht nahi hoti, uss k liye tm bhaar mn hi achii ho! Hr maheenay baad badal jaati ho,
+    but ek cheez jisska mujhe yaqeen hai k nahi badlay gi, woh hai hmari dostiii!!
+    and yes I love you for that! And I feel blessed to have a friend like you :)!!
+    Khushhh rho hameshaaa, aabaad rho!!<br><br>
 
+You are rare, unforgettable, and deeply valued!💖<br><br>
 
+-With Love, always💕
+    Laraib Shahid.
 
-Happy Birthday once again 🎂🎉
-<div class="signature"> 
-    — With love, always 💕<br>
-    Laraib Shahid </div>
 </div>
 
 </div>
 
 <script>
 
-let c = 5;
-
-function countdown(){
-    let counter = document.getElementById("countdown");
-
-    let t = setInterval(()=>{
-        c--;
-        counter.innerText = c;
-
-        if(c === 0){
-            clearInterval(t);
-            document.getElementById("countScreen").classList.add("hidden");
-            document.getElementById("welcome").classList.remove("hidden");
-            setTimeout(start,1000);
-        }
-    },1000);
+/* FLOWERS */
+function flowers(){
+    let icons=["🌸","🌷","💮","✨"];
+    setInterval(()=>{
+        let f=document.createElement("div");
+        f.className="float-item";
+        f.innerHTML=icons[Math.floor(Math.random()*icons.length)];
+        f.style.left=Math.random()*100+"vw";
+        f.style.fontSize=(15+Math.random()*20)+"px";
+        f.style.animationDuration=(3+Math.random()*3)+"s";
+        document.body.appendChild(f);
+        setTimeout(()=>f.remove(),5000);
+    },400);
 }
-countdown();
+flowers();
 
-function start(){
-    document.getElementById("welcome").classList.add("hidden");
-    document.getElementById("main").classList.remove("hidden");
+/* COUNTDOWN */
+let target=new Date("June 16, 2026 00:00:00").getTime();
 
-    typeWriter();
+let x=setInterval(()=>{
+    let now=new Date().getTime();
+    let diff=target-now;
 
-    let music = document.getElementById("music");
-    music.volume = 0;
-    music.play().catch(()=>{});
+    if(diff<=0){
+        clearInterval(x);
+        document.getElementById("countScreen").classList.add("hidden");
 
-    // fade in music
-    let vol = 0;
-    let fade = setInterval(()=>{
-        if(vol < 1){
-            vol += 0.05;
-            music.volume = vol;
-        } else {
-            clearInterval(fade);
-        }
-    },200);
-}
+        setTimeout(()=>{
+            document.getElementById("cinema").style.display="flex";
 
-let text = "Happiesttt Birthday and Twenty-two years on this weird planet✨ A day made just for YOU ❤️";
-let i = 0;
+            setTimeout(()=>{
+                document.getElementById("cinema").style.display="none";
+                document.getElementById("welcome").classList.remove("hidden");
 
-function typeWriter(){
-    if(i < text.length){
-        document.getElementById("typewriter").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeWriter,50);
+                setTimeout(()=>{
+                    document.getElementById("welcome").classList.add("hidden");
+                    document.getElementById("main").classList.remove("hidden");
+                },3000);
+
+            },5000);
+
+        },1000);
+    } else {
+        let days=Math.floor(diff/(1000*60*60*24));
+        document.getElementById("countdown").innerText=days+" days left";
     }
-}
+},1000);
 
-function openEnvelope(){
+/* LETTER */
+function openLetter(){
     document.getElementById("main").classList.add("hidden");
     document.getElementById("envelopeScreen").classList.remove("hidden");
 }
 
-function openLetter(){
+function reveal(){
+    let env=document.getElementById("envelope");
+    env.classList.add("open");
 
-    // 3D flip
-    document.getElementById("envelope").classList.add("flipped");
-
-    // confetti
     for(let i=0;i<40;i++){
-        let conf = document.createElement("div");
-        conf.className = "confetti";
-        conf.style.left = Math.random()*100 + "vw";
-        conf.style.background = ["#ff69b4","#ffb6c1","#fff","#ff4081"][Math.floor(Math.random()*4)];
-        conf.style.animationDuration = (1+Math.random()*2)+"s";
-        document.body.appendChild(conf);
-
-        setTimeout(()=>conf.remove(),2000);
+        let c=document.createElement("div");
+        c.className="confetti";
+        c.style.left=Math.random()*100+"vw";
+        c.style.background=["#ff69b4","#fff","#ffb6c1","#f8c8dc"][Math.floor(Math.random()*4)];
+        c.style.animationDuration=(1+Math.random()*2)+"s";
+        document.body.appendChild(c);
+        setTimeout(()=>c.remove(),2000);
     }
 
     setTimeout(()=>{
