@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title> 16-06-2026 ♡</title>
+<title>16-06-2026 ♡</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@500;700&display=swap" rel="stylesheet">
 
@@ -17,34 +17,38 @@ box-sizing:border-box;
 }
 
 body{
-background:#F8F4EF;
-color:#5f4a42;
+background: radial-gradient(circle at top, #fff7f2, #f3ede7);
+color:#5a443d;
 font-family:'Poppins',sans-serif;
 overflow-x:hidden;
 }
 
-/* floating sparkles */
+/* soft grain overlay */
+body::before{
+content:"";
+position:fixed;
+inset:0;
+background-image:url("https://www.transparenttextures.com/patterns/soft-wallpaper.png");
+opacity:.25;
+pointer-events:none;
+}
 
+/* floating sparkles */
 .sparkle{
 position:fixed;
-font-size:18px;
+font-size:16px;
 pointer-events:none;
-animation:float 8s linear infinite;
-opacity:.6;
+animation:float 10s linear infinite;
+opacity:.7;
+filter:blur(.2px);
 }
 
 @keyframes float{
-from{
-transform:translateY(100vh);
-}
-to{
-transform:translateY(-120vh);
-opacity:0;
-}
+from{transform:translateY(100vh) rotate(0deg);}
+to{transform:translateY(-120vh) rotate(180deg); opacity:0;}
 }
 
-/* hero */
-
+/* HERO */
 .hero{
 min-height:100vh;
 display:flex;
@@ -58,98 +62,145 @@ padding:40px;
 font-size:4rem;
 line-height:1.2;
 font-weight:300;
+font-family:'Poppins',sans-serif;
+letter-spacing:1px;
 }
 
-/* scrapbook section */
+.hero h1::after{
+content:"";
+display:block;
+width:120px;
+height:2px;
+background:#d9b8a7;
+margin:25px auto 0;
+border-radius:5px;
+opacity:.6;
+}
 
+/* SECTIONS */
 .section{
-padding:100px 20px;
+padding:110px 20px;
 max-width:1000px;
 margin:auto;
 }
 
-/* polaroid */
-
+/* POLAROID */
 .polaroid{
-background:white;
-padding:15px 15px 60px;
+background:rgba(255,255,255,.85);
+backdrop-filter:blur(10px);
+padding:15px 15px 70px;
 width:320px;
 margin:auto;
-box-shadow:0 15px 30px rgba(0,0,0,.12);
-transform:rotate(-3deg);
+box-shadow:0 25px 60px rgba(0,0,0,.12);
+transform:rotate(-2deg);
+border-radius:12px;
+transition:.4s ease;
+}
+
+.polaroid:hover{
+transform:rotate(0deg) scale(1.02);
 }
 
 .polaroid img{
 width:100%;
 display:block;
+border-radius:8px;
 }
 
 .caption{
-margin-top:15px;
+margin-top:18px;
 font-family:'Caveat',cursive;
-font-size:32px;
+font-size:30px;
+text-align:center;
+color:#6b4f45;
 }
 
-/* notes */
-
+/* NOTES */
 .notes{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:20px;
+gap:22px;
 margin-top:40px;
 }
 
 .note{
-background:#fffaf7;
+background:rgba(255,255,255,.9);
 padding:25px;
-border-radius:15px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+border-radius:18px;
+box-shadow:0 12px 30px rgba(0,0,0,.08);
 font-family:'Caveat',cursive;
-font-size:30px;
+font-size:28px;
+position:relative;
+transform:rotate(-1deg);
+transition:.3s ease;
 }
 
-/* letter */
+.note:nth-child(2){
+transform:rotate(1.5deg);
+}
 
+.note:nth-child(3){
+transform:rotate(-0.5deg);
+}
+
+.note:hover{
+transform:scale(1.05) rotate(0deg);
+}
+
+/* LETTER */
 .letter{
-background:white;
-padding:40px;
-border-radius:25px;
-box-shadow:0 15px 35px rgba(0,0,0,.08);
-font-family:"Times New Roman",serif;
-line-height:2;
-font-size:20px;
+background:rgba(255,255,255,.9);
+padding:50px;
+border-radius:30px;
+box-shadow:0 25px 60px rgba(0,0,0,.08);
+font-family:'Poppins',sans-serif;
+line-height:1.9;
+font-size:18px;
+position:relative;
 }
 
-/* final card */
+.letter h2{
+font-family:'Caveat',cursive;
+font-size:40px;
+margin-bottom:15px;
+}
 
+/* FINAL CARD */
 .final-card{
 text-align:center;
-padding:120px 20px;
+padding:140px 20px;
 }
 
 .final-card h2{
 font-size:4rem;
 margin-bottom:20px;
+font-weight:300;
 }
 
 .final-card p{
-font-size:22px;
+font-size:20px;
+opacity:.8;
 }
 
 .signature{
 font-family:'Caveat',cursive;
-font-size:50px;
+font-size:55px;
 margin-top:40px;
 }
 
+/* RESPONSIVE */
 @media(max-width:768px){
 
 .hero h1{
-font-size:2.5rem;
+font-size:2.6rem;
 }
 
 .final-card h2{
-font-size:2.7rem;
+font-size:2.8rem;
+}
+
+.polaroid{
+width:280px;
 }
 
 }
@@ -161,50 +212,41 @@ font-size:2.7rem;
 
 <script>
 
-const icons=["✨","🌸","💖","🌷"];
+const icons=["✨","🌸","💖","🌷","🪽"];
 
 setInterval(()=>{
 
 let s=document.createElement("div");
-
 s.className="sparkle";
-
 s.innerHTML=icons[Math.floor(Math.random()*icons.length)];
 
 s.style.left=Math.random()*100+"vw";
+s.style.fontSize=(12+Math.random()*18)+"px";
 
 document.body.appendChild(s);
 
-setTimeout(()=>{
-s.remove();
-},8000);
+setTimeout(()=>{ s.remove(); },10000);
 
-},500);
+},450);
 
 </script>
 
 <section class="hero">
-
 <h1>
-
 for someone<br>
 who accidentally became<br>
 one of my favorite people ♡
-
 </h1>
-
 </section>
 
 <section class="section">
 
 <div class="polaroid">
 
-<!-- ADD IMAGE HERE -->
-
 <img src="https://drive.google.com/thumbnail?id=1P2xT90j9eTjT7Cc0OmwGJNorYHNXim4H&sz=w1000">
 
 <div class="caption">
-Chhers to your 22 years on this weird planet! ✨
+I hatee you btw :) ✨
 </div>
 
 </div>
@@ -215,17 +257,9 @@ Chhers to your 22 years on this weird planet! ✨
 
 <div class="notes">
 
-<div class="note">
-you are loved ♡
-</div>
-
-<div class="note">
-you matter more than you know :)
-</div>
-
-<div class="note">
-thank you for existing ✨
-</div>
+<div class="note">you are loved ♡</div>
+<div class="note">you matter more than you know :)</div>
+<div class="note">thank you for existing ✨</div>
 
 </div>
 
@@ -236,8 +270,6 @@ thank you for existing ✨
 <div class="letter">
 
 <h2>Dear Zaakia ♡</h2>
-
-<br>
 
 To the most beautiful soul I call my "achii dost"! May all the happiness of this world find you even in the darkest of storms, and Allah's mercy be with you whatever situation you may be in!
 
@@ -256,8 +288,12 @@ You know what I love about you the most? Your originality!
     but ek cheez jisska mujhe yaqeen hai k nahi badlay gi, woh hai hmari dostiii!!
     and yes I love you for that! And I feel blessed to have a friend like you :)!!
     Khushhh rho hameshaaa, aabaad rho!!<br><br>
+<br><br>
 
-You are rare, unforgettable, and deeply valued!💖
+You are rare, unforgettable, and deeply valued.
+
+<br><br>
+
 
 </div>
 
@@ -267,15 +303,11 @@ You are rare, unforgettable, and deeply valued!💖
 
 <h2>Happy Birthday ♡</h2>
 
-<p>
-Ms Zaakia Sultan Butt
-</p>
+<p>Ms Zaakia Sultan Butt</p>
 
 <div class="signature">
-
 With Love,<br>
 Laraib
-
 </div>
 
 </section>
